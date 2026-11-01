@@ -1,0 +1,11 @@
+id	audio	marked
+S01	audio/train/sentence_01.ogg	[Sundar Pichai|PER] is the chief executive of [Google|ORG].
+S02	audio/train/sentence_02.ogg	[Infosys|ORG] opened a new office in [Bangalore|LOC].
+S03	audio/train/sentence_03.ogg	I visited [Chennai|LOC] with my friend [Sreenedhi|PER] last summer.
+S04	audio/train/sentence_04.ogg	[Abdul Kalam|PER] was born in [Rameshwaram|LOC].
+S05	audio/train/sentence_05.ogg	The [Indian Space Research Organization|ORG] launched a rocket from [Sriharikota|LOC].
+S06	audio/train/sentence_06.ogg	[Virat Kohli|PER] played for [Royal Challengers Bangalore|ORG].
+S07	audio/train/sentence_07.ogg	[Anna University|ORG] is located in [Kandy|LOC] near [Chennai|LOC].
+S08	audio/train/sentence_08.ogg	The [Reserve Bank of India|ORG] is headquartered in [Mumbai|LOC].
+S09	audio/train/sentence_09.ogg	[Kalpana Chawla|PER] worked for [NASA|ORG].
+S10	audio/train/sentence_10.ogg	[Tesla|ORG] opened a showroom in [Delhi|LOC].

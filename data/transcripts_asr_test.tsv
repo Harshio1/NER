@@ -1,0 +1,4 @@
+file	asr_text	wer_vs_reference
+test_01.ogg	Narainthra Modi visited Madurai and met officials from the bro.	0.333
+test_02.ogg	Mahindra Singh Dhoni played for Chennai Super Kings	0.125
+test_03.ogg	Subhriti Mandana joined Deloitte in Vishalakapatnam	0.500

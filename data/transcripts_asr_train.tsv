@@ -1,0 +1,11 @@
+file	asr_text	wer_vs_reference
+sentence_01.ogg	Sundar Pichai is the chief executive of Google.	0.000
+sentence_02.ogg	Infosys opened a new office in Bangalore.	0.000
+sentence_03.ogg	I visited Chennai with my friend Strena Dey last summer.	0.222
+sentence_04.ogg	Abdul Kalam was born in Dremesh, with him.	0.500
+sentence_05.ogg	The Indian Space Research Organization launched a rocket from Sriharikota.	0.000
+sentence_06.ogg	Virat Kohli played for Royal Challengers Bangalore	0.000
+sentence_07.ogg	Anna University is located in Gindi near Chennai.	0.125
+sentence_08.ogg	The Reserve Bank of India is headquartered in Mumbai.	0.000
+sentence_09.ogg	Kalpana Chabla have worked for NASA	0.400
+sentence_10.ogg	Tesla opened the showroom in Delhi.	0.167

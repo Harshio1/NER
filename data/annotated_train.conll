@@ -1,0 +1,97 @@
+# S01
+Sundar	B-PER
+Pichai	I-PER
+is	O
+the	O
+chief	O
+executive	O
+of	O
+Google	B-ORG
+
+# S02
+I	O
+visited	O
+Chennai	B-LOC
+with	O
+my	O
+friend	O
+Arjun	B-PER
+last	O
+summer	O
+
+# S03
+Infosys	B-ORG
+opened	O
+a	O
+new	O
+office	O
+in	O
+Bengaluru	B-LOC
+
+# S04
+Abdul	B-PER
+Kalam	I-PER
+was	O
+born	O
+in	O
+Rameswaram	B-LOC
+
+# S05
+Priya	B-PER
+joined	O
+Tata	B-ORG
+Consultancy	I-ORG
+Services	I-ORG
+in	O
+Coimbatore	B-LOC
+
+# S06
+The	O
+Indian	B-ORG
+Space	I-ORG
+Research	I-ORG
+Organisation	I-ORG
+launched	O
+a	O
+rocket	O
+from	O
+Sriharikota	B-LOC
+
+# S07
+Virat	B-PER
+Kohli	I-PER
+played	O
+for	O
+Royal	B-ORG
+Challengers	I-ORG
+Bangalore	I-ORG
+
+# S08
+Anna	B-ORG
+University	I-ORG
+is	O
+located	O
+in	O
+Guindy	B-LOC
+near	O
+Chennai	B-LOC
+
+# S09
+Microsoft	B-ORG
+hired	O
+Ramesh	B-PER
+Kumar	I-PER
+in	O
+Hyderabad	B-LOC
+
+# S10
+The	O
+Reserve	B-ORG
+Bank	I-ORG
+of	I-ORG
+India	I-ORG
+is	O
+headquartered	O
+in	O
+Mumbai	B-LOC
+

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Voice NER · Named entities from speech with a recurrent network</title>
+<meta name="description" content="A BiGRU sequence tagger that finds people, organisations and places in transcribed speech. Try it with your microphone.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎙️%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top"><a href="#demo" class="brand">Voice&nbsp;NER</a>
+<nav><a href="#data">Dataset</a><a href="#results">Results</a><a href="#asr">Speech-to-text</a><a href="#pipeline">Pipeline</a><a href="#limits">Limitations</a><a href="#run">Run it</a></nav></header>
+
+<main>
+<section id="demo" class="hero">
+  <h1>Say a sentence.<br>Watch it find the people, companies and places.</h1>
+  <p class="lede">A bidirectional GRU, trained on ten recordings of one voice, labels every word of a transcript with BIO tags. The network below runs in your browser, in plain JavaScript, using the weights from training.</p>
+  <div class="stage" aria-live="polite">
+    <canvas id="wave" height="90" aria-hidden="true"></canvas>
+    <div class="row">
+      <input id="inp" type="text" value="Deepika studied at Loyola College in Chennai" aria-label="Sentence to tag" autocomplete="off" spellcheck="false">
+      <button id="mic" type="button">Speak</button>
+    </div>
+    <div id="out" class="tagged"></div>
+    <p id="ents" class="ents"></p>
+    <div class="chips" id="presets"></div>
+    <p id="status" class="note"></p>
+  </div>
+  <dl class="legend"><div><dt class="PER">PER</dt><dd>person</dd></div><div><dt class="ORG">ORG</dt><dd>organisation</dd></div><div><dt class="LOC">LOC</dt><dd>location</dd></div><div><dt class="O">O</dt><dd>not an entity</dd></div><div><dt>B- / I-</dt><dd>first word / continuation</dd></div></dl>
+</section>
+
+<section id="data">
+  <h2>The dataset: ten sentences in one voice, three held back for testing</h2>
+  <p>Each recording was transcribed, then annotated by hand with BIO tags. Select a sentence to tag it above.</p>
+  <div id="dataset" class="dataset"></div>
+</section>
+
+<section id="results">
+  <h2>Results on recordings the model never saw</h2>
+  <div class="big"><div><b id="f1">–</b><span>entity F1 on the 3 test recordings (selected model)</span></div><div><b id="devf1">–</b><span>entity F1 on 150 synthetic sentences with unseen entities</span></div><div><b id="gain">–</b><span>mean test F1 over 5 seeds, vs <em id="gain0">–</em> with the 10 recordings alone</span></div></div>
+  <h3>Data augmentation is what makes ten sentences trainable</h3>
+  <div id="bars" class="bars"></div>
+  <h3>Per entity type (test recordings)</h3>
+  <table id="pertype"><thead><tr><th>Type</th><th>Precision</th><th>Recall</th><th>F1</th><th>Entities</th></tr></thead><tbody></tbody></table>
+  <h3>Gold labels against predictions</h3>
+  <div id="preds"></div>
+  <h3>Training curve</h3>
+  <svg id="curve" viewBox="0 0 640 220" role="img" aria-label="F1 per training epoch"></svg>
+</section>
+
+<section id="asr">
+  <h2>What the speech recogniser actually heard</h2>
+  <p id="asrsum">Whisper small.en transcribed every recording. Names are where it struggles.</p>
+  <div class="scroll"><table id="asrtab"><thead><tr><th>File</th><th>I said</th><th>Whisper heard</th><th>WER</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<section id="pipeline">
+  <h2>From a voice to a tag, in five steps</h2>
+  <ol class="steps">
+    <li><b>Record.</b> Ten short sentences, each with at least one person, organisation or place; three more for testing.</li>
+    <li><b>Transcribe.</b> Whisper turns each .wav into text; word error rate is measured against the script.</li>
+    <li><b>Annotate.</b> Entities are marked by hand and converted to BIO tags: B-PER, I-PER, B-ORG, I-ORG, B-LOC, I-LOC, O.</li>
+    <li><b>Train.</b> Word and suffix embeddings feed a bidirectional recurrent layer; a softmax gives one tag per word. SimpleRNN, LSTM and GRU are all implemented.</li>
+    <li><b>Evaluate.</b> Strict entity matching (type and exact span) on new recordings, with and without capital letters.</li>
+  </ol>
+</section>
+
+<section id="limits">
+  <h2>What goes wrong with a tiny, self-made audio dataset</h2>
+  <div class="cols">
+    <article><h3>Almost no data</h3><p>Ten sentences hold 75 words and 21 entities. Trained on those alone, the model scores far below the augmented one, and its score swings widely between random seeds.</p></article>
+    <article><h3>Augmentation helps and misleads</h3><p>Substituting entities into templates teaches context patterns, but the synthetic sentences share a few dozen phrasings. Training loss falls close to zero, which signals memorised templates more than language understanding.</p></article>
+    <article><h3>Names the model has never met</h3><p>Unseen words fall back to the unknown-word vector, so the decision rests on context and word endings. Where the context is ambiguous the label is a guess, which is how an organisation can come out as a location.</p></article>
+    <article><h3>Speech-to-text removes clues</h3><p>Some engines drop capital letters and punctuation, and may mishear or split rare names. The model is trained with capitalisation randomly removed, yet every ASR mistake becomes a label mistake.</p></article>
+    <article><h3>One speaker, one accent</h3><p>All the audio is a single voice in a quiet room. Other accents, noise and speaking speeds change the transcripts, and none of that is tested here.</p></article>
+    <article><h3>Three test sentences</h3><p>One wrong entity moves F1 by more than ten points. Treat the numbers as a demonstration of method, not a benchmark.</p></article>
+  </div>
+</section>
+
+<section id="run">
+  <h2>Run it yourself</h2>
+<pre><code>pip install -r requirements.txt
+python src/transcribe.py --audio audio/train          # speech to text
+python src/annotate.py build --in data/sentences.tsv --prefix data/annotated_train
+python src/train_keras.py --cell all                  # SimpleRNN vs LSTM vs GRU
+cd src &amp;&amp; python run_experiments.py                   # NumPy BiGRU, ablation, website export
+python src/predict_audio.py audio/test/test_01.wav    # tag a new recording</code></pre>
+</section>
+</main>
+<footer>Lab Assessment 10 · Named entity recognition from speech with recurrent networks</footer>
+<script src="app.js"></script>
+</body>
+</html>

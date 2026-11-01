@@ -1,0 +1,10 @@
+{"id": "S01", "audio": "audio/train/sentence_01.wav", "tokens": ["Sundar", "Pichai", "is", "the", "chief", "executive", "of", "Google"], "tags": ["B-PER", "I-PER", "O", "O", "O", "O", "O", "B-ORG"]}
+{"id": "S02", "audio": "audio/train/sentence_02.wav", "tokens": ["I", "visited", "Chennai", "with", "my", "friend", "Arjun", "last", "summer"], "tags": ["O", "O", "B-LOC", "O", "O", "O", "B-PER", "O", "O"]}
+{"id": "S03", "audio": "audio/train/sentence_03.wav", "tokens": ["Infosys", "opened", "a", "new", "office", "in", "Bengaluru"], "tags": ["B-ORG", "O", "O", "O", "O", "O", "B-LOC"]}
+{"id": "S04", "audio": "audio/train/sentence_04.wav", "tokens": ["Abdul", "Kalam", "was", "born", "in", "Rameswaram"], "tags": ["B-PER", "I-PER", "O", "O", "O", "B-LOC"]}
+{"id": "S05", "audio": "audio/train/sentence_05.wav", "tokens": ["Priya", "joined", "Tata", "Consultancy", "Services", "in", "Coimbatore"], "tags": ["B-PER", "O", "B-ORG", "I-ORG", "I-ORG", "O", "B-LOC"]}
+{"id": "S06", "audio": "audio/train/sentence_06.wav", "tokens": ["The", "Indian", "Space", "Research", "Organisation", "launched", "a", "rocket", "from", "Sriharikota"], "tags": ["O", "B-ORG", "I-ORG", "I-ORG", "I-ORG", "O", "O", "O", "O", "B-LOC"]}
+{"id": "S07", "audio": "audio/train/sentence_07.wav", "tokens": ["Virat", "Kohli", "played", "for", "Royal", "Challengers", "Bangalore"], "tags": ["B-PER", "I-PER", "O", "O", "B-ORG", "I-ORG", "I-ORG"]}
+{"id": "S08", "audio": "audio/train/sentence_08.wav", "tokens": ["Anna", "University", "is", "located", "in", "Guindy", "near", "Chennai"], "tags": ["B-ORG", "I-ORG", "O", "O", "O", "B-LOC", "O", "B-LOC"]}
+{"id": "S09", "audio": "audio/train/sentence_09.wav", "tokens": ["Microsoft", "hired", "Ramesh", "Kumar", "in", "Hyderabad"], "tags": ["B-ORG", "O", "B-PER", "I-PER", "O", "B-LOC"]}
+{"id": "S10", "audio": "audio/train/sentence_10.wav", "tokens": ["The", "Reserve", "Bank", "of", "India", "is", "headquartered", "in", "Mumbai"], "tags": ["O", "B-ORG", "I-ORG", "I-ORG", "I-ORG", "O", "O", "O", "B-LOC"]}

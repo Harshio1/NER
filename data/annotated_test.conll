@@ -1,0 +1,46 @@
+# T01
+Narendra	B-PER
+Modi	I-PER
+visited	O
+Madurai	B-LOC
+and	O
+met	O
+officials	O
+from	O
+Wipro	B-ORG
+
+# T02
+Deepika	B-PER
+studied	O
+at	O
+Loyola	B-ORG
+College	I-ORG
+in	O
+Chennai	B-LOC
+
+# T03
+Rahul	B-PER
+works	O
+for	O
+Amazon	B-ORG
+in	O
+Kochi	B-LOC
+
+# T04
+Ratan	B-PER
+Tata	I-PER
+visited	O
+Visakhapatnam	B-LOC
+and	O
+met	O
+executives	O
+from	O
+Honda	B-ORG
+
+# T05
+Karan	B-PER
+joined	O
+Honda	B-ORG
+in	O
+Nagpur	B-LOC
+

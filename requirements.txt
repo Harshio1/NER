@@ -1,0 +1,8 @@
+numpy>=1.24
+# --- speech-to-text ---
+openai-whisper            # offline ASR (needs ffmpeg installed)
+SpeechRecognition         # optional: Google Web Speech backend
+# --- Keras models (SimpleRNN / LSTM / GRU) ---
+tensorflow>=2.13
+# --- optional ---
+matplotlib

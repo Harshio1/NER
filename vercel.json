@@ -1,0 +1,12 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": null,
+  "buildCommand": null,
+  "outputDirectory": "website",
+  "cleanUrls": true,
+  "headers": [
+    { "source": "/model/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }] },
+    { "source": "/(.*)", "headers": [{ "key": "Permissions-Policy", "value": "microphone=(self)" }] }
+  ]
+}
